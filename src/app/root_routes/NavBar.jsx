@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const  NavBar = () =>{
     return(
-<nav style={{marginRight:"3rem"}}>
+<nav>
     <ul>
     <li><Link to="/">Login</Link></li>
     <li><Link to="/signup">Signup</Link></li>
