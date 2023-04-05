@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-
+import {UserContext} from "../../store/user-context";
 
 const Login = () => {
     const navigate=useNavigate();
+    const { login } = useContext(UserContext);
     const [userInfo, setUserInfo] = useState({
         email: "",
         password: "",
@@ -14,6 +15,7 @@ const Login = () => {
 
     const onSubmitHandler = (e) => {
        e.preventDefault();
+       login(userInfo.email);
        setUserInfo({email: "",password: "",})
        navigate("/dashboard");
        console.log("value",userInfo)
